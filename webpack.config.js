@@ -1,4 +1,6 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const pjson = require("./package.json");
 
 /*We are basically telling webpack to take index.js from entry. Then check for all file extensions in resolve.
 After that apply all the rules in module.rules and produce the output and place it in main.js in the public folder.*/
@@ -17,7 +19,7 @@ module.exports = {
     /** "path"
      * the folder path of the output file
      */
-    path: path.resolve(__dirname, "public"),
+    path: path.resolve(__dirname, "dist"),
     /** "filename"
      * the name of the output file
      */
@@ -88,4 +90,13 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "public/index.html"),
+      title: "Haha",
+      meta: {
+        version: pjson.version,
+      },
+    }),
+  ],
 };
