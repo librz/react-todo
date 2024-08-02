@@ -11,6 +11,7 @@ const config: Configuration = {
     filename: "main.js",
   },
   target: "web",
+  // @ts-ignore
   devServer: {
     port: "9500",
     static: ["./public"],
@@ -36,16 +37,7 @@ const config: Configuration = {
       // load css file as webpack module
       {
         test: /\.css$/i,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 1,
-              modules: true, // using css modules
-            },
-          },
-        ],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },

@@ -1,0 +1,23 @@
+.add-todo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+}
+
+.add-todo .add-todo-input {
+    flex: 1;
+    font-size: 18px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    color: #333;
+}
+
+.add-todo .add-todo-btn {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.tdd-todo-btn:hover {
+    color: royalblue;
+}

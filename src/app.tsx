@@ -1,9 +1,11 @@
-import React from "react";
-import { app } from "./app.css";
-// import styles from "./app.css"; // somehow this doesn't work
+import React, { useEffect } from "react";
+import Todos from "./Todos";
+import "./app.css";
 
-const App = () => {
-  return <h1 className={app}>wsup</h1>;
-};
-
-export default App;
+export default function App() {
+  return (
+    <div className={"app"}>
+      <Todos />
+    </div>
+  );
+}

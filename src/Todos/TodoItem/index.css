@@ -1,0 +1,53 @@
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.todo-item:hover {
+    background-color: whitesmoke;
+}
+
+.todo-item-selected,
+.todo-item-selected:hover {
+    background-color: royalblue;
+    color: #fff;
+}
+
+.todo-item-description {
+    flex: 1;
+    /* show ellipsis */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@supports (display: -webkit-box) {
+    /* show multiline ellipsis if it's supported */
+    .todo-item-description {
+        white-space: unset;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+}
+
+.todo-item-delete {
+    opacity: 0;
+    padding: 0px 4px;
+    cursor: pointer;
+}
+
+.todo-item:hover .todo-item-delete {
+    opacity: 0.8;
+}
+
+.todo-item:hover .todo-item-delete:hover {
+    opacity: 1;
+}
