@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { ITodoItem } from "./interface";
 
-function delay(ms: number): Promise<any> {
+function delay(ms: number): Promise<unknown> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("yay!");
@@ -31,6 +31,6 @@ export function fetchAddTodo(description: string): Promise<ITodoItem> {
   return delay(1500).then(() => todo);
 }
 
-export function fetchRemoveTodo(id: string): Promise<any> {
+export function fetchRemoveTodo(_id: string): Promise<unknown> {
   return delay(1000);
 }

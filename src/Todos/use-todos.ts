@@ -58,6 +58,7 @@ export function useTodos() {
         const todos = await fetchTodos();
         dispatch({ type: "set", payload: todos });
       } catch (err) {
+        console.error(err);
         alert("Failed to load todos");
       } finally {
         setLoading(false);

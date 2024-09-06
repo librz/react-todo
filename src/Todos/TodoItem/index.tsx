@@ -19,6 +19,7 @@ const TodoItem: FC<IProps> = ({ todo, selected, onSelect, onDeleted }) => {
       await fetchRemoveTodo(todo.id);
       onDeleted();
     } catch (err) {
+      console.error(err);
       alert("Failed to remove todo");
     } finally {
       setRemoving(false);

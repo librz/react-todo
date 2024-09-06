@@ -19,6 +19,7 @@ const AddTodo: FC<IProps> = ({ onAdded }) => {
       onAdded(newTodo);
       setInput("");
     } catch (err) {
+      console.error(err);
       alert("Failed to add todo");
     } finally {
       setAdding(false);
