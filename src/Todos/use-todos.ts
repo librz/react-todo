@@ -7,29 +7,25 @@ interface IState {
   todos: ITodoItem[];
 }
 
-function todoReducer(state: IState, dispatch: ITodoAction): IState {
-  switch (dispatch.type) {
+function todoReducer(state: IState, action: ITodoAction): IState {
+  switch (action.type) {
     case "set":
       return {
-        todos: dispatch.payload,
+        todos: action.payload,
       };
     case "select":
       return {
         ...state,
-        selectedId: dispatch.payload.id,
+        selectedId: action.payload.id,
       };
     case "add":
       return {
         ...state,
-        todos: state.todos.concat(dispatch.payload),
+        todos: state.todos.concat(action.payload),
       };
     case "delete": {
-      const deletedTodo = state.todos.find(
-        (it) => it.id === dispatch.payload.id,
-      );
-      const newTodos = state.todos.filter(
-        (it) => it.id !== dispatch.payload.id,
-      );
+      const deletedTodo = state.todos.find((it) => it.id === action.payload.id);
+      const newTodos = state.todos.filter((it) => it.id !== action.payload.id);
       if (deletedTodo?.id === state.selectedId) {
         // remove selectedId if the deleted todo is the selected one
         const { selectedId, ...otherState } = state;
@@ -45,7 +41,7 @@ function todoReducer(state: IState, dispatch: ITodoAction): IState {
       }
     }
     default:
-      throw new Error("[todoReducer]: Unknown dispath type");
+      throw new Error("[todoReducer]: Unknown action type");
   }
 }
 
