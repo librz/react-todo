@@ -25,18 +25,20 @@ function todoReducer(state: IState, action: ITodoAction): IState {
       };
     case "delete": {
       const deletedTodo = state.todos.find((it) => it.id === action.payload.id);
-      const newTodos = state.todos.filter((it) => it.id !== action.payload.id);
+      const filteredTodos = state.todos.filter(
+        (it) => it.id !== action.payload.id,
+      );
       if (deletedTodo?.id === state.selectedId) {
         // remove selectedId if the deleted todo is the selected one
         const { selectedId, ...otherState } = state;
         return {
           ...otherState,
-          todos: newTodos,
+          todos: filteredTodos,
         };
       } else {
         return {
           ...state,
-          todos: newTodos,
+          todos: filteredTodos,
         };
       }
     }
