@@ -30,7 +30,7 @@ function todoReducer(state: IState, action: ITodoAction): IState {
       );
       if (deletedTodo?.id === state.selectedId) {
         // remove selectedId if the deleted todo is the selected one
-        const { selectedId, ...otherState } = state;
+        const { selectedId, todos, ...otherState } = state;
         return {
           ...otherState,
           todos: filteredTodos,

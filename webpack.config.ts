@@ -11,7 +11,6 @@ const config: Configuration = {
     filename: "main.js",
   },
   target: "web",
-  // @ts-ignore
   devServer: {
     port: "9500",
     static: ["./public"],
