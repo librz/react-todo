@@ -9,7 +9,7 @@ function delay(ms: number): Promise<unknown> {
   });
 }
 
-export function fetchTodos(): Promise<ITodoItem[]> {
+export async function fetchTodos(): Promise<ITodoItem[]> {
   const fakeTodos: ITodoItem[] = [
     {
       id: uuidv4(),
@@ -20,15 +20,17 @@ export function fetchTodos(): Promise<ITodoItem[]> {
       description: "watch moive",
     },
   ];
-  return delay(2000).then(() => fakeTodos);
+  await delay(500);
+  return fakeTodos;
 }
 
-export function fetchAddTodo(description: string): Promise<ITodoItem> {
+export async function fetchAddTodo(description: string): Promise<ITodoItem> {
   const todo: ITodoItem = {
     id: uuidv4(),
     description: description,
   };
-  return delay(1500).then(() => todo);
+  await delay(1000);
+  return todo;
 }
 
 export function fetchRemoveTodo(_id: string): Promise<unknown> {

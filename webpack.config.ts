@@ -20,7 +20,7 @@ const config: Configuration & {
     /** "open"
      * opens the browser after server is successfully started
      */
-    open: false,
+    open: true,
     hot: true,
     liveReload: true,
   },
