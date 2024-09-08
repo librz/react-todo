@@ -1,9 +1,12 @@
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { Configuration } from "webpack";
+import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
 import pjson from "./package.json";
 
-const config: Configuration = {
+const config: Configuration & {
+  devServer?: WebpackDevServerConfiguration;
+} = {
   mode: "development",
   entry: "./src/index.tsx",
   output: {
